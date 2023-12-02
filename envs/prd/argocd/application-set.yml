@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: https://github.com/maxi1555/gitops-environments.git
+      repoURL: https://github.com/Waji-97/ArgoCD-Test.git
       revision: HEAD
       directories:
       - path: 'envs/prd/*'
@@ -21,7 +21,7 @@ spec:
 
       # Source of the application manifests
       source:
-        repoURL: https://github.com/maxi1555/gitops-environments.git
+        repoURL: https://github.com/Waji-97/ArgoCD-Test.git
         targetRevision: HEAD
         path: '{{path}}'
         
