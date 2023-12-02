@@ -9,8 +9,8 @@ spec:
       repoURL: https://github.com/Waji-97/ArgoCD-Test.git
       revision: HEAD
       directories:
-      - path: 'envs/dev/*'
-      - path: 'envs/dev/argocd'
+      - path: 'envs/stg/*'
+      - path: 'envs/stg/argocd'
         exclude: true      
   template:      
     metadata:
