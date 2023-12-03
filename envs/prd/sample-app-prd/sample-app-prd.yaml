@@ -15,7 +15,7 @@ metadata:
     spec:
       containers:
       - name: sample-node-app-prd
-        image: kunalmac25/node-image
+        image: nginx:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
