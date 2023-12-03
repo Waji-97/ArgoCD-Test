@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: sample-node-app-prd
   namespace: default
-  spec:
+spec:
   replicas: 1
   selector:
     matchLabels:

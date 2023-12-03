@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: sample-node-app-stg
   namespace: default
-  spec:
+spec:
   replicas: 4
   selector:
     matchLabels:
