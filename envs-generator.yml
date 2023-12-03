@@ -26,7 +26,7 @@ spec:
       # Destination cluster and namespace to deploy the application
       destination:
         server: https://kubernetes.default.svc
-        #namespace: '{{path[1]}}-{{path[2]}}'
+      # namespace: '{{path[1]}}-{{path[2]}}'  ## ==> 아무 리소스 없는 네임스페이스를 생성 한다? 왜 인지 아직 모름.
 
       # Sync policy
       syncPolicy:
