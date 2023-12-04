@@ -1,0 +1,4 @@
+name: sample-app
+namespace: sample
+label: sample-app
+service: sample-app-svc
