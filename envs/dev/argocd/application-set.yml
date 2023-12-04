@@ -13,8 +13,8 @@ spec:
               repoURL: https://github.com/Waji-97/ArgoCD-Test.git
               revision: HEAD
               directories:
-                - path: 'envs/prd/*'
-                - path: 'envs/prd/argocd'
+                - path: 'envs/dev/*'
+                - path: 'envs/dev/argocd'
                   exclude: true
           # cluster generator, 'child' #2
           - clusters:
