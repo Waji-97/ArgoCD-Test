@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: 'appset-generator-envs'
+  name: 'appset-generator-prd'
   namespace: argocd
 spec:
   generators:
