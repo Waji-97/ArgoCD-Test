@@ -5,14 +5,20 @@ metadata:
   namespace: argocd
 spec:
   generators:
-  - git:
-      repoURL: https://github.com/Waji-97/ArgoCD-Test.git
-      revision: HEAD
-      directories:
-      - path: 'envs/*/argocd'
+    - matrix:
+        generators:
+          - git:
+              repoURL: https://github.com/Waji-97/ArgoCD-Test.git
+              revision: HEAD
+              directories:
+                - path: 'envs/*/argocd'
+          - clusters:
+              selector:
+                matchLabels:
+                  argocd.argoproj.io/secret-type: cluster
   template:        
     metadata:
-      name: 'app-generator-{{path[1]}}'
+      name: 'app-generator-{{path[1]}}-{{server}}'
     spec:
       # The project the application belongs to.
       project: default
