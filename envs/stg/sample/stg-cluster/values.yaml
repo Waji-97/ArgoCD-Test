@@ -1,0 +1,4 @@
+name: sample-app-stg
+namespace: sample
+label: sample-app-stg
+service: sample-app-stg-svc

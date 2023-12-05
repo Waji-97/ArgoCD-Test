@@ -5,10 +5,8 @@ metadata:
   namespace: argocd
 spec:
   generators:
-    # matrix 'parent' generator
     - matrix:
         generators:
-          # git generator, 'child' #1
           - git:
               repoURL: https://github.com/Waji-97/ArgoCD-Test.git
               revision: HEAD
@@ -16,20 +14,13 @@ spec:
                 - path: 'envs/prd/*'
                 - path: 'envs/prd/argocd'
                   exclude: true
-          # cluster generator, 'child' #2
           - clusters:
               selector:
                 matchLabels:
                   ctype: prd
-#spec:
-#  generators:
-#  - git:
-#      repoURL: https://github.com/Waji-97/ArgoCD-Test.git
-#      revision: HEAD
-#      directories:
-#      - path: 'envs/prd/*'
-#      - path: 'envs/prd/argocd'
-#        exclude: true
+          - list:
+              elements:
+                - cluster: '{{name}}'
   template:      
     metadata:
       name: 'app-generated-{{path[1]}}-{{path[2]}}-{{name}}'
@@ -41,7 +32,7 @@ spec:
       source:
         repoURL: https://github.com/Waji-97/ArgoCD-Test.git
         targetRevision: HEAD
-        path: '{{path}}'
+        path: '{{path}}/{{name}}/*'
         
       # Destination cluster and namespace to deploy the application
       destination:

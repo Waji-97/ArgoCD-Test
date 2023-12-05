@@ -1,0 +1,4 @@
+name: sample-app-prd
+namespace: sample
+label: sample-app-prd
+service: sample-app-prd-svc

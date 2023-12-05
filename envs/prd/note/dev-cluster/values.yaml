@@ -1,0 +1,4 @@
+name: note-app-dev
+namespace: note
+label: note-app-dev
+service: note-app-dev-svc

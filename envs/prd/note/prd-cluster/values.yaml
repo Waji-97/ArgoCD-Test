@@ -1,0 +1,4 @@
+name: note-app-prd
+namespace: note
+label: note-app-prd
+service: note-app-prd-svc
