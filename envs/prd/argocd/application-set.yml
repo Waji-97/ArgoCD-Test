@@ -18,9 +18,6 @@ spec:
               selector:
                 matchLabels:
                   ctype: prd
-          - list:
-              elements:
-                - cluster: '{{name}}'
   template:      
     metadata:
       name: 'app-generated-{{path[1]}}-{{path[2]}}-{{name}}'
