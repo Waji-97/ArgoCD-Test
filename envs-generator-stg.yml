@@ -1,24 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: 'appset-generator-stg'
+  name: 'appset-generator-envs'
   namespace: argocd
 spec:
   generators:
-    - matrix:
-        generators:
-          - git:
-              repoURL: https://github.com/Waji-97/ArgoCD-Test.git
-              revision: HEAD
-              directories:
-                - path: 'envs/stg/argocd'
-          - clusters:
-              selector:
-                matchLabels:
-                  ctype: stg
+  - git:
+      repoURL: https://github.com/Waji-97/ArgoCD-Test.git
+      revision: HEAD
+      directories:
+      - path: 'envs/*/argocd'
   template:        
     metadata:
-      name: 'app-generator-{{path[1]}}-{{name}}'
+      name: 'app-generator-{{path[1]}}'
     spec:
       # The project the application belongs to.
       project: default
@@ -32,7 +26,7 @@ spec:
       # Destination cluster and namespace to deploy the application
       destination:
         server: https://kubernetes.default.svc
-        #namespace: '{{path[1]}}-{{path[2]}}-{{server}}'  ## ==> 아무 리소스 없는 네임스페이스를 생성 한다? 왜 인지 아직 모름.
+      # namespace: '{{path[1]}}-{{path[2]}}'  ## ==> 아무 리소스 없는 네임스페이스를 생성 한다? 왜 인지 아직 모름.
 
       # Sync policy
       syncPolicy:
