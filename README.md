@@ -1,4 +1,7 @@
 # ArgoCD-Test
-Test for Argo-CD Cluster
+Test for Multi-Cluster GitOps Pattern using a single Argo CD cluster.
 
-![image](https://github.com/Waji-97/ArgoCD-Test/assets/76054852/f91ae373-2f61-4b8d-97c0-6f819c63f4a1)
+--- 
+![image](https://github.com/Waji-97/ArgoCD-Test/assets/76054852/a98dcd38-6964-4ee7-99f7-e8ee807fc6be)
+
+
