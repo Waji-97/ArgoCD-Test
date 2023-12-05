@@ -32,7 +32,7 @@ spec:
 #        exclude: true      
   template:      
     metadata:
-      name: 'app-generated-{{path[1]}}-{{path[2]}}'
+      name: 'app-generated-{{path[1]}}-{{path[2]}}-{{server}}'
     spec:
       # The project the application belongs to.
       project: default
