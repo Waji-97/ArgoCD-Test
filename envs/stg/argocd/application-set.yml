@@ -29,7 +29,7 @@ spec:
       source:
         repoURL: https://github.com/Waji-97/ArgoCD-Test.git
         targetRevision: HEAD
-        path: '{{path}}/{{name}}/*'
+        path: '{{path}}/{{name}}/'
         
       # Destination cluster and namespace to deploy the application
       destination:
