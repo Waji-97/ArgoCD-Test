@@ -15,7 +15,7 @@ spec:
           - clusters:
               selector:
                 matchLabels:
-                  argocd.argoproj.io/secret-type: cluster
+                  ctype: prd
   template:        
     metadata:
       name: 'app-generator-{{path[1]}}-{{name}}'
