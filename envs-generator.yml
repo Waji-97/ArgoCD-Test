@@ -18,7 +18,7 @@ spec:
                   argocd.argoproj.io/secret-type: cluster
   template:        
     metadata:
-      name: 'app-generator-{{path[1]}}-{{server}}'
+      name: 'app-generator-{{path[1]}}-{{name}}'
     spec:
       # The project the application belongs to.
       project: default
