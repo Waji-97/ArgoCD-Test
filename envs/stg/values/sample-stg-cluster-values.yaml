@@ -1,4 +1,4 @@
 name: sample-app-stg
-namespace: sample
+namespace: test2
 label: sample-app-stg
 service: sample-app-stg-svc
