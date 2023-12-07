@@ -1,0 +1,4 @@
+name: last-app-prd
+namespace: prd-last
+label: last-app-prd
+service: last-app-prd-svc
