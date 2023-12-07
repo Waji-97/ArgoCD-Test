@@ -1,4 +1,4 @@
 name: note-app-prd
-namespace: note
+namespace: prd-note
 label: note-app-prd
 service: note-app-prd-svc
