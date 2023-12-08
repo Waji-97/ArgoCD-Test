@@ -9,10 +9,10 @@ spec:
       repoURL: https://github.com/Waji-97/ArgoCD-Test.git
       revision: HEAD
       directories:
-      - path: 'envs/*/argocd'
+      - path: 'git-ops-2/envs/*/argocd'
   template:        
     metadata:
-      name: 'app2-generator-{{path[1]}}'
+      name: 'app2-generator-{{path[2]}}'
     spec:
       # The project the application belongs to.
       project: default
