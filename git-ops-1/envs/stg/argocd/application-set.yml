@@ -11,10 +11,10 @@ spec:
               repoURL: https://github.com/Waji-97/ArgoCD-Test.git
               revision: HEAD
               directories:
-                - path: 'envs/stg/*'
-                - path: 'envs/stg/argocd'
+                - path: 'git-ops-1/envs/stg/*'
+                - path: 'git-ops-1/envs/stg/argocd'
                   exclude: true
-                - path: 'envs/stg/values'
+                - path: 'git-ops-1/envs/stg/values'
                   exclude: true
           - clusters:
               selector:
@@ -22,7 +22,7 @@ spec:
                   ctype: stg
   template:      
     metadata:
-      name: 'app-generated-{{path[1]}}-{{path[2]}}-{{name}}'
+      name: 'app-generated-{{path[2]}}-{{path[3]}}-{{name}}'
     spec:
       # The project the application belongs to.
       project: default
@@ -34,7 +34,7 @@ spec:
         path: '{{path}}'
         helm:
           valueFiles:
-          - "../values/{{path[2]}}-{{name}}-values.yaml"
+          - "../values/{{path[3]}}-{{name}}-values.yaml"
       # Destination cluster and namespace to deploy the application
       destination:
         server: '{{server}}'
