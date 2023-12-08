@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: 'appset-generator-envs'
+  name: 'appset2-generator-envs'
   namespace: argocd
 spec:
   generators:
@@ -12,7 +12,7 @@ spec:
       - path: 'envs/*/argocd'
   template:        
     metadata:
-      name: 'app-generator-{{path[1]}}'
+      name: 'app2-generator-{{path[1]}}'
     spec:
       # The project the application belongs to.
       project: default

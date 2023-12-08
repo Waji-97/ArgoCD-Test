@@ -1,4 +1,0 @@
-name: note-app-prd
-namespace: prd-note
-label: note-app-prd
-service: note-app-prd-svc

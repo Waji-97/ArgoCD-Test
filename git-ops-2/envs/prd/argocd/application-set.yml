@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: 'appset-generator-prd'
+  name: 'appset2-generator-prd'
   namespace: argocd
 spec:
   generators:
@@ -24,7 +24,7 @@ spec:
                   ctype: prd
   template:      
     metadata:
-      name: 'app-generated-{{path[1]}}-{{path[2]}}-{{name}}'
+      name: 'app2-generated-{{path[1]}}-{{path[2]}}-{{name}}'
       annotations:
         argocd.argoproj.io/sync-wave: "2"
     spec:

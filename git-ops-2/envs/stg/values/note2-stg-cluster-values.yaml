@@ -1,0 +1,4 @@
+name: note2-app-stg
+namespace: test1234234
+label: note2-app-stg
+service: note2-app-stg-svc

@@ -1,4 +1,0 @@
-name: sample-app-stg
-namespace: test2
-label: sample-app-stg
-service: sample-app-stg-svc
