@@ -4,7 +4,6 @@ metadata:
   name: 'appset-generator-prd'
   namespace: argocd
 spec:
-  goTemplate: true
   generators:
     - matrix:
         generators:
@@ -23,13 +22,7 @@ spec:
                   ctype: prd
   template:      
     metadata:
-      name: 'app-generated-{{ .path[1] }}-{{ .path[2] }}-{{ .name }}'
-      annotations:
-        {{ if eq .path[2] "note" }}
-        argocd.argoproj.io/sync-wave: "1"
-        {{ else }}
-        argocd.argoproj.io/sync-wave: "2"
-        {{ end }}
+      name: 'app-generated-{{path[1]}}-{{path[2]}}-{{name}}'
     spec:
       project: default
       source:
@@ -39,16 +32,10 @@ spec:
         helm:
           valueFiles:
           - "../values/{{path[2]}}-{{name}}-values.yaml"
-        
-      # Destination cluster and namespace to deploy the application
       destination:
         server: '{{server}}'
-        #namespace: '{{path[1]}}-{{path[2]}}'
-
-      # Sync policy
       syncPolicy:
         syncOptions:
           - CreateNamespace=true  
-        automated: # automated sync by default retries failed attempts 5 times with following delays between attempts ( 5s, 10s, 20s, 40s, 80s ); retry controlled using `retry` field.
-          #prune: true # Specifies if resources should be pruned during auto-syncing ( false by default ).
-          selfHeal: true # Specifies if partial app sync should be executed when resources are changed only in target Kubernetes cluster and no git change detected ( false by default ).
+        automated: 
+          selfHeal: true

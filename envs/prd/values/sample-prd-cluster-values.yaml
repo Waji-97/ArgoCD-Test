@@ -2,3 +2,4 @@ name: sample-app-prd
 namespace: prd-sample
 label: sample-app-prd
 service: sample-app-prd-svc
+dependency: null
