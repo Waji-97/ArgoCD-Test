@@ -11,12 +11,12 @@ spec:
               repoURL: https://github.com/Waji-97/ArgoCD-Test.git
               revision: HEAD
               directories:
-                - path: 'envs/prd/*'
-                - path: 'envs/prd/sample'
+                - path: 'git-ops-2/envs/prd/*'
+                - path: 'git-ops-2/envs/prd/sample'
                   exclude: true
-                - path: 'envs/prd/argocd'
+                - path: 'git-ops-2/envs/prd/argocd'
                   exclude: true
-                - path: 'envs/prd/values'
+                - path: 'git-ops-2/envs/prd/values'
                   exclude: true
           - clusters:
               selector:
@@ -24,7 +24,7 @@ spec:
                   ctype: prd
   template:      
     metadata:
-      name: 'app2-generated-{{path[1]}}-{{path[2]}}-{{name}}'
+      name: 'app2-generated-{{path[2]}}-{{path[3]}}-{{name}}'
       annotations:
         argocd.argoproj.io/sync-wave: "2"
     spec:
@@ -35,7 +35,7 @@ spec:
         path: '{{path}}'
         helm:
           valueFiles:
-          - "../values/{{path[2]}}-{{name}}-values.yaml"
+          - "../values/{{path[3]}}-{{name}}-values.yaml"
       destination:
         server: '{{server}}'
       syncPolicy:
