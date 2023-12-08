@@ -23,11 +23,14 @@ spec:
   template:      
     metadata:
       name: 'app-generated-{{path[1]}}-{{path[2]}}-{{name}}'
+      annotations:
+        {{ if {{path[2]}} == "note" then }}
+        argocd.argoproj.io/sync-wave: "1"
+        {{ else }}
+        argocd.argoproj.io/sync-wave: "2"
+        {{ end }}
     spec:
-      # The project the application belongs to.
       project: default
-
-      # Source of the application manifests
       source:
         repoURL: https://github.com/Waji-97/ArgoCD-Test.git
         targetRevision: HEAD
