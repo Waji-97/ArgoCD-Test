@@ -4,6 +4,7 @@ metadata:
   name: 'appset-generator-prd'
   namespace: argocd
 spec:
+  goTemplate: true
   generators:
     - matrix:
         generators:
@@ -22,9 +23,9 @@ spec:
                   ctype: prd
   template:      
     metadata:
-      name: 'app-generated-{{path[1]}}-{{path[2]}}-{{name}}'
+      name: 'app-generated-{{ .path[1] }}-{{ .path[2] }}-{{ .name }}'
       annotations:
-        {{ if "{{path[2]}}" == "note" then }}
+        {{ if eq .path[2] "note" }}
         argocd.argoproj.io/sync-wave: "1"
         {{ else }}
         argocd.argoproj.io/sync-wave: "2"
