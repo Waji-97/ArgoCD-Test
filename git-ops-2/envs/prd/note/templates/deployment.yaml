@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.label }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.label }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.label }}
+    spec:
+      containers:
+      - name: notes-app-deployment
+        image: pavansa/notes-app
+        resources:
+          requests:
+            cpu: "100m"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000

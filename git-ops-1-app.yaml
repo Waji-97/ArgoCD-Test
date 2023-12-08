@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: gitops-1
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  source:
+    repoURL: https://github.com/Waji-97/ArgoCD-Test.git
+    targetRevision: HEAD
+    path: ./git-ops-1
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+  syncPolicy:
+    automated: 
+      prune: true 
+      selfHeal: true   
+    syncOptions:
+      - CreateNamespace=true
