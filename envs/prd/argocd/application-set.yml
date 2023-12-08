@@ -39,3 +39,11 @@ spec:
           - CreateNamespace=true  
         automated: 
           selfHeal: true
+        hooks:
+          - wait:
+            resources:
+              - group: argoproj.io
+                kind: Application
+                name: 'app-generated-{{path[1]}-{{path[2]}}-{{prev.name}}'
+            timeout: 300s
+            ignoreErrors: true
