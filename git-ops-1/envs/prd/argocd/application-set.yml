@@ -25,8 +25,6 @@ spec:
   template:      
     metadata:
       name: 'app-generated-{{path[1]}}-{{path[2]}}-{{name}}'
-      annotations:
-        argocd.argoproj.io/sync-wave: "2"
     spec:
       project: default
       source:
